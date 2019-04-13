@@ -34,7 +34,7 @@ int main(){
     textopciones += "6 - Salir simulacion\n";
     textopciones += "\nIngrese opcion: ";
 
-    Computador *pc = nullptr;
+    Computador *pc = NULL;
     
     cout << textinicio;
 
@@ -42,7 +42,7 @@ int main(){
         unsigned short int op = 0;
         do{
             cout << "Estado: ";
-            if(pc == nullptr) {
+            if(pc == NULL) {
                 cout << "El computador esta apagado" << endl;
             }else {
                 cout << "El computador esta encendido";
@@ -65,7 +65,7 @@ int main(){
         {
         
         case encender:
-            if(pc == nullptr) {
+            if(pc == NULL) {
                 pc = new Computador();
                 cout << "El computador se encendio" << endl;
             }else{
@@ -74,7 +74,7 @@ int main(){
             break;
         
         case salir:
-            if(pc != nullptr) { 
+            if(pc != NULL) { 
                 cout << "Deberias apagar el computador antes de salir de la simulacion" << endl;
                 break;
             }
@@ -84,7 +84,7 @@ int main(){
             break;
         
         case abrir:
-            if(pc == nullptr) {
+            if(pc == NULL) {
                 cout << "No se puede realizar la operacion: computador apagado" << endl;
             }else {
                 string nombrePrograma;
@@ -99,7 +99,7 @@ int main(){
             break;
 
         case cerrar:
-            if(pc == nullptr) {
+            if(pc == NULL) {
                 cout << "No se puede realizar la operacion: computador apagado" << endl;
             }else if (pc->getCantidadProgramasAbiertos() > 0){
                 string nombrePrograma;
@@ -118,21 +118,21 @@ int main(){
             break;
         
         case enlistar:
-            if(pc == nullptr) {
+            if(pc == NULL) {
                 cout << "No se puede realizar la operacion: computador apagado" << endl;
             }else {
-            pc->mostrarProgramasAbiertos();
+                pc->mostrarProgramasAbiertos();
             }
             break;
         
         case apagar:
-            if(pc != nullptr) {
+            if(pc != NULL) {
                 if(pc->getCantidadProgramasAbiertos() > 0) {
                     cout << "Deberias cerrar todos los programas antes de apagar el computador" << endl;
                     break;
                 }
-                pc->~Computador();
-                pc = nullptr;
+                delete pc;
+                pc = NULL;
                 cout << "El computador se ha apagado" << endl;
             }else {
                 cout << "El computador se encuentra apagado" << endl;

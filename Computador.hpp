@@ -5,8 +5,6 @@ namespace carlos_faundez {
         private:
             bool estadoComputador;
         public:
-            Computador();
-            ~Computador();
             bool endencerComputador();
             bool apagarComputador(); 
             bool getEstadoComputador();

@@ -10,6 +10,9 @@ AdministradorDeTareas::AdministradorDeTareas() {
 }
 
 AdministradorDeTareas::~AdministradorDeTareas() {
+    for (int i = 0 ; i < programasAbiertos->size() ; i++) {
+        delete &programasAbiertos->at(i);
+    } 
     programasAbiertos->clear();
     delete programasAbiertos;
 }
